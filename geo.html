@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Geolocalización</title>
+    <script>
+        function obtenerUbicacion() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(mostrarUbicacion);
+            } else {
+                alert("Tu navegador no soporta geolocalización.");
+            }
+        }
+
+        function mostrarUbicacion(posicion) {
+            var latitud = posicion.coords.latitude;
+            var longitud = posicion.coords.longitude;
+            var precision = posicion.coords.accuracy;
+
+            // Puedes hacer lo que quieras con la latitud y la longitud
+            alert("Tu ubicación es: Latitud " + latitud + ", Longitud " + longitud + " con una precisión de " + precision + " metros.");
+        }
+    </script>
+</head>
+<body>
+    <h2>Geolocalización</h2>
+    <button onclick="obtenerUbicacion()">Obtener Ubicación</button>
+</body>
+</html>
